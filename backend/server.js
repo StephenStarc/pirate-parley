@@ -1,10 +1,15 @@
 import express from 'express'
+import dotenv from 'dotenv'
+dotenv.config()
 import PRODUCTS from './data/PRODUCTS.js'
-const port = 5000
+import cors from 'cors'
+
+const port = process.env.PORT || 5000
 
 const app = express()
 
-app.get('/', (req,res)=>{
+app.use(cors())
+app.get('/api/products', (req,res)=>{
 res.json(PRODUCTS)
 })
 
