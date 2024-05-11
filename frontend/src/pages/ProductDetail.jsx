@@ -12,12 +12,14 @@ export default function ProductDetail() {
 
     useEffect(()=>{
         const fetchProduct = async () => {
-            const {data} = await axios(`http://localhost:5000/product/${productId}`)
+            const {data} = await axios(`http://localhost:5000/api/products/${productId}`)
         setProduct(data)
         }
         fetchProduct()
         
     },[productId])
+
+    console.log(product)
    return (
     <Layout>
     <Link to='/' className="btn btn-light">Go Back</Link>
