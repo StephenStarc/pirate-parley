@@ -3,9 +3,10 @@ import dotenv from 'dotenv'
 dotenv.config()
 import PRODUCTS from './data/PRODUCTS.js'
 import cors from 'cors'
+import connectDB from './config/db.js'
 
 const port = process.env.PORT || 5000
-
+connectDB()
 const app = express()
 
 app.use(cors())

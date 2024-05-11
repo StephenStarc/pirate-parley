@@ -1,5 +1,5 @@
 {
-  "name": "cosmic-blacksale",
+  "name": "anime-archive",
   "version": "1.0.0",
   "description": "",
   "type": "module",
@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongoose": "^8.3.4"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
