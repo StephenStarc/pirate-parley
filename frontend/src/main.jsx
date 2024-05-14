@@ -7,11 +7,12 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import ProductDetail from './pages/ProductDetail.jsx'
 import { Provider } from 'react-redux'
 import { store } from './store.jsx'
-
+import CartScreen from './pages/CartScreen.jsx'
 
 const router = createBrowserRouter([
   {path:'/',element:<App />},
 {path:'/product/:id',element:<ProductDetail />},
+{path:'/cart',element:<CartScreen/>},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
