@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { UpdateCart } from "../utils/CartUtils";
+import { Navigate } from "react-router-dom";
 const initialState = localStorage.getItem('animeArchiveCart') ? JSON.parse(localStorage.getItem('animeArchiveCart')) : {cartItems:[]}
 
 
@@ -16,12 +17,17 @@ const cartSlice = createSlice({
             }else{
                 state.cartItems = [...state.cartItems, item]
             }
-
             return UpdateCart(state)
+        },
+        removeFromCart: (state,action) => {
+            state.cartItems = state.cartItems.filter((i) => i._id !== action.payload)
+        
+        return UpdateCart(state)
+
         }
     }
 })
 
-export const {addToCart} = cartSlice.actions
+export const {addToCart, removeFromCart} = cartSlice.actions
 
 export default cartSlice.reducer

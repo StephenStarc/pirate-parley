@@ -6,7 +6,6 @@ import {Badge} from 'react-bootstrap'
 export default function Header(){
 
     const {cartItems }= useSelector(state => state.cart)
-    console.log(cartItems)
     return (
         <header>
         <Navbar varient="dark" expand="md" collapseOnSelect>
