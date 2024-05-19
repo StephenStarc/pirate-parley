@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, redirect, useNavigate } from "react-router-dom"
 import { Row, Col, ListGroup, Image, Form, Button, Card, ListGroupItem } from "react-bootstrap"
 import { FaTrash } from "react-icons/fa"
 import Message from "../components/Message"
@@ -16,6 +16,10 @@ function CartScreen() {
     const addToCartHandler = async (product, qty) => {
         dispatch(addToCart({...product, qty}))
     }
+
+    const checkoutHandler = () => {
+        navigate('/login?redirect=/shipping');
+      };
 
     const removeFromCartHandler = async(id) => {
         dispatch(removeFromCart(id))
@@ -73,7 +77,7 @@ function CartScreen() {
                         </h2>
                     </ListGroup.Item>
                     <ListGroup.Item>
-                        <Button type="button" className="btn-block" disabled={cartItems.length === 0}>Proceed to Checkout</Button>
+                        <Button type="button" className="btn-block" disabled={cartItems.length === 0} onClick={() => checkoutHandler()}>Proceed to Checkout</Button>
                     </ListGroup.Item>
                 </ListGroup>
             </Card>
