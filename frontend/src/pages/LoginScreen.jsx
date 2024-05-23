@@ -34,7 +34,6 @@ const LoginScreen = () => {
      */
     const submitHandler = async (e) => {
         e.preventDefault() // Prevent form submission
-        console.log('here')
        try{
         const res = await login({email, password}).unwrap()
     dispatch(setCredentials({...res}))  

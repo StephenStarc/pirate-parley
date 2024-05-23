@@ -1,15 +1,29 @@
 import {Navbar, Nav, Container, NavDropdown} from 'react-bootstrap'
 import {FaShoppingCart, FaUser} from 'react-icons/fa'
 import {LinkContainer} from 'react-router-bootstrap'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import {Badge} from 'react-bootstrap'
+import {logout} from '../slices/authSlice'
+import { useLogoutMutation } from '../slices/userApiSlice'
+import { useNavigate } from 'react-router-dom'
+
 export default function Header(){
 
     const {cartItems }= useSelector(state => state.cart)
     const {userInfo}= useSelector(state => state.auth)
 
-    const logoutHandler = () =>{
-        console.log('Logout')
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const [logoutApiCall] = useLogoutMutation()
+    const logoutHandler = async () =>{
+        try{
+            await logoutApiCall().unwrap()
+            dispatch(logout())
+            navigate('/login')
+        }catch(err){
+            console.log(err)
+        }
     }
     return (
         <header>
@@ -38,7 +52,7 @@ export default function Header(){
                                 <LinkContainer to='/profile'>
                             <NavDropdown.Item>Profile</NavDropdown.Item>
                             </LinkContainer>
-                                <NavDropdown.Item onClick={()=>logoutHandler}>Logout</NavDropdown.Item>
+                                <NavDropdown.Item onClick={()=>logoutHandler()}>Logout</NavDropdown.Item>
                             </NavDropdown>
                             
                         ):(

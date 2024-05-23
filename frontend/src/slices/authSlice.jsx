@@ -14,10 +14,13 @@ const authSlice = createSlice({
             state.userInfo = action.payload
             localStorage.setItem('AnimeArchiveUserInfo', JSON.stringify(action.payload))
         },
-
+        logout: (state,action) => {
+            state.userInfo = null
+            localStorage.removeItem('AnimeArchiveUserInfo')
+        }
     }
 })
 
 export default authSlice.reducer
 
-export const {setCredentials} = authSlice.actions
+export const {setCredentials, logout} = authSlice.actions
