@@ -10,3 +10,4 @@ Anime Archive
 1. Redux Toolkit<br />
 2. Axios - Later Replaced with Redux CreateApi Slice
 3. Tostify - Creating Alerts
+4. React Icons - For Icons
