@@ -12,6 +12,8 @@ import LoginScreen from './pages/LoginScreen.jsx'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RegisterScreen from './pages/RegisterScreen.jsx'
+import ShippingPage from './pages/ShippingPage.jsx'
+import PrivateRoute from './components/PrivateRoute.jsx'
 
 const router = createBrowserRouter([
   {path:'/',element:<App />},
@@ -19,6 +21,7 @@ const router = createBrowserRouter([
 {path:'/cart',element:<CartScreen/>},
 {path:'/login',element:<LoginScreen/>},
 {path:'/register',element:<RegisterScreen/>},
+{path:'/shipping',element:<PrivateRoute Component={ShippingPage}/>},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

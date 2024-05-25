@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { UpdateCart } from "../utils/CartUtils";
 import { Navigate } from "react-router-dom";
-const initialState = localStorage.getItem('animeArchiveCart') ? JSON.parse(localStorage.getItem('animeArchiveCart')) : {cartItems:[], shippingAddress:{},paymentMethod:'PayP al'}
+const initialState = localStorage.getItem('animeArchiveCart') ? JSON.parse(localStorage.getItem('animeArchiveCart')) : {cartItems:[], shippingAddress:{},paymentMethod:'PayPal'}
 
 
 const cartSlice = createSlice({
@@ -24,10 +24,14 @@ const cartSlice = createSlice({
         
         return UpdateCart(state)
 
+        },
+        saveTheShippingAddress: (state,action) => {
+            state.shippingAddress = action.payload
+            return UpdateCart(state)
         }
     }
 })
 
-export const {addToCart, removeFromCart} = cartSlice.actions
+export const {addToCart, removeFromCart, saveTheShippingAddress} = cartSlice.actions
 
 export default cartSlice.reducer
