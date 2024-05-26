@@ -13,3 +13,4 @@ Anime Archive
 4. Json Web Token - For Authenticating user data<br />
 5. Tostify - Creating Alerts<br />
 6. React Icons - For Icons<br />
+7. Cookie Parser - For Parsing data in Cookie<br />
