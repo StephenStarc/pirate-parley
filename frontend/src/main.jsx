@@ -15,6 +15,7 @@ import RegisterScreen from './pages/RegisterScreen.jsx'
 import ShippingPage from './pages/ShippingPage.jsx'
 import PrivateRoute from './components/PrivateRoute.jsx'
 import PaymentPage from './pages/PaymentPage.jsx'
+import PlaceOrderPage from './pages/PlaceOrderPage.jsx'
 
 const router = createBrowserRouter([
   {path:'/',element:<App />},
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
 {path:'/register',element:<RegisterScreen/>},
 {path:'/shipping',element:<PrivateRoute Component={ShippingPage}/>},
 {path:'/payment',element:<PrivateRoute Component={PaymentPage}/>},
+{path:'/placeorder',element:<PrivateRoute Component={PlaceOrderPage}/>},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
